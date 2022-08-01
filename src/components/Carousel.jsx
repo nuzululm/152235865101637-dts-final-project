@@ -33,7 +33,7 @@ const Carousel = () => {
         {comics.map((item, id) => (
           <SwiperSlide key={id}>
             <div className="w-full h-[600px] text-white inline-block cursor-pointer relative">
-              <Link to="/" className="w-full h-full">
+              <Link to={`/detail/${item?.mal_id}`} className="w-full h-full">
                 <div className="absolute w-full h-[600px] bg-gradient-to-r from-black"></div>
                 <img
                   className="w-full h-full object-cover"

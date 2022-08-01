@@ -11,8 +11,8 @@ const Home = () => {
       <Navbar />
       <Carousel />
       <TopItem title="TOP MANGA" fetchURL={API_URL.topManga} />
-      <TopItem title="TOP MANHUA" fetchURL={API_URL.topManhua} />
-      <TopItem title="TOP MANHWA" fetchURL={API_URL.topManhwa} />
+      <TopItem title="TOP MANHUA" fetchURL={API_URL.topManhua} type="manhua" />
+      <TopItem title="TOP MANHWA" fetchURL={API_URL.topManhwa} type="manhwa" />
       <Footer />
     </>
   );

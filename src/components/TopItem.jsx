@@ -3,7 +3,7 @@ import axios from "axios";
 import { Link } from "react-router-dom";
 import Manga from "./Manga";
 
-const TopItem = ({ title, fetchURL }) => {
+const TopItem = ({ title, fetchURL, type = "manga" }) => {
   const [manga, setManga] = useState([]);
 
   useEffect(() => {
@@ -27,7 +27,7 @@ const TopItem = ({ title, fetchURL }) => {
       <div className="flex flex-col">
         <div className="flex justify-between px-4 sm:px-6 lg:px-8 mt-5">
           <h2 className="text-slate-700 font-bold md:text-xl p-4">{title}</h2>
-          <Link to="/" className="text-slate-600 font-semibold hover:text-slate-800 md:text-md p-4">
+          <Link to={`/${type}`} className="text-slate-600 font-semibold hover:text-slate-800 md:text-md p-4">
             View All
           </Link>
         </div>

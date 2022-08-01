@@ -1,4 +1,4 @@
-const BASE_URL = "https://api.jikan.moe/v4";
+export const BASE_URL = "https://api.jikan.moe/v4";
 
 const API_URL = {
   topComic: `${BASE_URL}/manga?limit=10`,
