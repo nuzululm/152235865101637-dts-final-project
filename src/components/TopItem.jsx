@@ -2,8 +2,6 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import Manga from "./Manga";
-import { toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
 
 const TopItem = ({ title, fetchURL }) => {
   const [manga, setManga] = useState([]);
