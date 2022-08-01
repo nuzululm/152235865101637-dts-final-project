@@ -1,6 +1,8 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
 import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut } from "firebase/auth";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
@@ -24,7 +26,11 @@ const register = async (email, password) => {
     const user = await response.user;
     console.log(user);
   } catch (error) {
-    alert(error.message);
+    console.log(error);
+    toast.error(error.message, {
+      theme: "colored",
+      position: toast.POSITION.TOP_RIGHT,
+    });
   }
 };
 
@@ -34,7 +40,11 @@ const login = async (email, password) => {
     const user = await response.user;
     console.log(user);
   } catch (error) {
-    alert(error.message);
+    console.log(error);
+    toast.error(error.message, {
+      theme: "colored",
+      position: toast.POSITION.TOP_RIGHT,
+    });
   }
 };
 
@@ -42,7 +52,11 @@ const logout = async () => {
   try {
     signOut(auth);
   } catch (error) {
-    alert(error.message);
+    console.log(error);
+    toast.error(error.message, {
+      theme: "colored",
+      position: toast.POSITION.TOP_RIGHT,
+    });
   }
 };
 

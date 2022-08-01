@@ -96,7 +96,7 @@ const Navbar = () => {
                     >
                       <button
                         onClick={onLogout}
-                        className="block px-4 py-2 text-sm text-white cursor-pointer"
+                        className="block px-4 py-2 text-sm text-slate-800 cursor-pointer"
                         role="menuitem"
                         tabIndex="-1"
                         id="user-menu-item-2"
@@ -202,7 +202,7 @@ const Navbar = () => {
                   <div className="mt-3 px-2 space-y-1">
                     <button
                       onClick={onLogout}
-                      className="block px-3 py-2 rounded-md text-base font-regular text-gray-800 hover:text-sky-700 hover:bg-neutral-100"
+                      className="block px-3 py-2 rounded-md text-base font-regular text-slate-800 hover:text-sky-700 hover:bg-neutral-100"
                     >
                       Logout
                     </button>
