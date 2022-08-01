@@ -26,7 +26,7 @@ const Navbar = () => {
             <div className="flex items-center">
               <div className="flex flex-shrink-0">
                 <img className="h-8 w-8" src={Logo} alt="Logo" />
-                <p className="text-gray-800 text-xl text-gray-800 ml-2 font-semibold">komiKuy</p>
+                <p className="text-xl text-gray-800 ml-2 font-semibold">komiKuy</p>
               </div>
               <div className="hidden md:block">
                 <div className="ml-40 flex items-baseline justify-center">
