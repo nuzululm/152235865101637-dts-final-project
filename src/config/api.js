@@ -1,18 +1,15 @@
-const BASE_URL = "https://komiku-api.fly.dev/api/comic";
+const BASE_URL = "https://api.jikan.moe/v4";
 
 const API_URL = {
-  popular: `${BASE_URL}/popular/page/1`,
-  recommended: `${BASE_URL}/recommended/page/1`,
-  latest: `${BASE_URL}/newest/page/1`,
-  detail: `${BASE_URL}/info`, // + endpoint
-  search: `${BASE_URL}/search`, // + /query
-  chapterDetail: `${BASE_URL}/chapter`, // + endpoint
-
-  //List
-  list: `${BASE_URL}/list`,
-  mangaList: `${BASE_URL}/list?filter=manga`,
-  manghuaList: `${BASE_URL}/list?filter=manhua`,
-  manghwaList: `${BASE_URL}/list?filter=manhwa`,
+  topComic: `${BASE_URL}/manga?limit=5`,
+  topManga: `${BASE_URL}/top/manga?type=manga`,
+  topManhua: `${BASE_URL}/top/manga?type=manhua`,
+  topManhwa: `${BASE_URL}/top/manga?type=manhwa`,
+  search: `${BASE_URL}/manga?q=`, // + query
+  manga: `${BASE_URL}/manga/id/full`, // + id
+  characters: `${BASE_URL}/manga/id/characters`, // + id
+  recommendations: `${BASE_URL}/manga/id/recommendations`, // + id
+  reviews: `${BASE_URL}/manga/id/reviews`, // + id
 };
 
 export default API_URL;
