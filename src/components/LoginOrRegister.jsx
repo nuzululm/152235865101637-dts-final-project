@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { auth, login, register } from "../config/firebase";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { Link } from "react-router-dom";
+import Logo from "../assets/logo.png";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
@@ -67,33 +68,16 @@ const LoginOrRegister = ({ loginOrRegister }) => {
   return (
     <>
       <div className="w-full h-screen flex">
-        <img
-          className="opacity-75 hidden lg:block"
-          src="https://i.pinimg.com/originals/e7/f7/87/e7f78705c17fa51936b3176ddb97ec1f.jpg"
-          alt="login"
-        />
+        <img className="opacity-75 hidden lg:block" src="https://i.pinimg.com/originals/e7/f7/87/e7f78705c17fa51936b3176ddb97ec1f.jpg" alt="login" />
         <div className="w-max-[600px] flex flex-col my-auto mx-auto">
-          <h1 className="text-slate-700 text-center text-2xl my-4 font-bold">
-            {loginOrRegister === "login" ? "Login" : "Register"}
-          </h1>
-          <input
-            onChange={emailOnChange}
-            className="my-2 p-2 rounded text-sky-200 bg-sky-900"
-            type="text"
-            placeholder="Email"
-            autoComplete="email"
-          />
-          <input
-            onChange={passwordOnChange}
-            className="my-2 p-2 rounded text-sky-200 bg-sky-900"
-            type="password"
-            placeholder="Password"
-            autoComplete="current-password"
-          />
-          <button
-            onClick={loginOrRegisterHandler}
-            className="bg-sky-700 text-gray-50 p-3 my-4 hover:bg-sky-500 hover:text-gray-100 rounded-lg"
-          >
+          <div className="flex items-center justify-center mb-14">
+            <img className="h-10 w-10" src={Logo} alt="Logo" />
+            <p className="text-4xl text-slate-800 ml-2 font-semibold">komiKuy</p>
+          </div>
+          <h1 className="text-slate-700 text-center text-2xl my-4 font-bold">{loginOrRegister === "login" ? "Login" : "Register"}</h1>
+          <input onChange={emailOnChange} className="my-2 p-2 rounded text-sky-200 bg-sky-900" type="text" placeholder="Email" autoComplete="email" />
+          <input onChange={passwordOnChange} className="my-2 p-2 rounded text-sky-200 bg-sky-900" type="password" placeholder="Password" autoComplete="current-password" />
+          <button onClick={loginOrRegisterHandler} className="bg-sky-700 text-gray-50 p-3 my-4 hover:bg-sky-500 hover:text-gray-100 rounded-lg">
             {loginOrRegister === "login" ? "Login" : "Register"}
           </button>
           {loginOrRegister === "login" ? (

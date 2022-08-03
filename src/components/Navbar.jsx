@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Transition } from "@headlessui/react";
 import Logo from "../assets/logo.png";
 import ProfileImage from "../assets/profile.png";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import { auth, logout } from "../config/firebase";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { RiLoginBoxLine } from "react-icons/ri";
@@ -30,30 +30,49 @@ const Navbar = () => {
               </div>
               <div className="hidden md:block">
                 <div className="ml-40 flex items-baseline justify-center">
-                  <Link to="/" className="text-sky-700 px-3 py-2 rounded-md text-sm font-medium cursor-pointer">
+                  <NavLink
+                    to="/"
+                    className={({ isActive }) =>
+                      isActive
+                        ? "text-sky-700 font-medium hover:text-sky-700 hover:font-medium px-3 py-2 rounded-md text-sm font-regular cursor-pointer"
+                        : "text-gray-800 hover:text-sky-700 hover:font-medium px-3 py-2 rounded-md text-sm font-regular cursor-pointer"
+                    }
+                  >
                     Home
-                  </Link>
+                  </NavLink>
 
-                  <Link
+                  <NavLink
                     to="/manga"
-                    className="text-gray-800 hover:text-sky-700 hover:font-medium px-3 py-2 rounded-md text-sm font-regular cursor-pointer"
+                    className={({ isActive }) =>
+                      isActive
+                        ? "text-sky-700 font-medium hover:text-sky-700 hover:font-medium px-3 py-2 rounded-md text-sm font-regular cursor-pointer"
+                        : "text-gray-800 hover:text-sky-700 hover:font-medium px-3 py-2 rounded-md text-sm font-regular cursor-pointer"
+                    }
                   >
                     Manga
-                  </Link>
+                  </NavLink>
 
-                  <Link
+                  <NavLink
                     to="/manhua"
-                    className="text-gray-800 hover:text-sky-700 hover:font-medium px-3 py-2 rounded-md text-sm font-regular cursor-pointer"
+                    className={({ isActive }) =>
+                      isActive
+                        ? "text-sky-700 font-medium hover:text-sky-700 hover:font-medium px-3 py-2 rounded-md text-sm font-regular cursor-pointer"
+                        : "text-gray-800 hover:text-sky-700 hover:font-medium px-3 py-2 rounded-md text-sm font-regular cursor-pointer"
+                    }
                   >
                     Manhua
-                  </Link>
+                  </NavLink>
 
-                  <Link
+                  <NavLink
                     to="/manhwa"
-                    className="text-gray-800 hover:text-sky-700 hover:font-medium px-3 py-2 rounded-md text-sm font-regular cursor-pointer"
+                    className={({ isActive }) =>
+                      isActive
+                        ? "text-sky-700 font-medium hover:text-sky-700 hover:font-medium px-3 py-2 rounded-md text-sm font-regular cursor-pointer"
+                        : "text-gray-800 hover:text-sky-700 hover:font-medium px-3 py-2 rounded-md text-sm font-regular cursor-pointer"
+                    }
                   >
                     Manhwa
-                  </Link>
+                  </NavLink>
                 </div>
               </div>
             </div>
@@ -66,7 +85,7 @@ const Navbar = () => {
                       <button
                         type="button"
                         onClick={() => setIsUserOpen(!isUserOpen)}
-                        className="max-w-xs bg-neutral-50 rounded-lg flex items-center text-sm focus:outline-none hover:ring-2 hover:ring-offset-2 hover:ring-offset-neutral-900 hover:ring-white text-gray-800 hover:text-sky-700 font-regular hover:font-medium"
+                        className="max-w-xs bg-neutral-50 rounded-lg flex items-center text-sm focus:outline-none text-gray-800 hover:text-sky-700 font-regular hover:font-medium"
                         id="user-menu-button"
                         aria-expanded="false"
                         aria-haspopup="true"
@@ -77,10 +96,7 @@ const Navbar = () => {
                       </button>
                     </div>
                   ) : (
-                    <Link
-                      to="/login"
-                      className="max-w-xs bg-neutral-50 rounded-lg flex items-center text-sm focus:outline-none hover:ring-2 hover:ring-offset-2 hover:ring-offset-sky-700 hover:ring-white text-gray-800 hover:text-sky-700 font-regular hover:font-medium"
-                    >
+                    <Link to="/login" className="max-w-xs bg-neutral-50 rounded-lg flex items-center text-sm focus:outline-none text-gray-800 hover:text-sky-700 font-regular hover:font-medium">
                       <p className="mx-2 cursor-pointer text-md">Login</p>
                       <RiLoginBoxLine className="h-5 w-5" />
                     </Link>
@@ -94,13 +110,7 @@ const Navbar = () => {
                       aria-labelledby="user-menu-button"
                       tabIndex="-1"
                     >
-                      <button
-                        onClick={onLogout}
-                        className="block px-4 py-2 text-sm text-slate-800 cursor-pointer"
-                        role="menuitem"
-                        tabIndex="-1"
-                        id="user-menu-item-2"
-                      >
+                      <button onClick={onLogout} className="block px-4 py-2 text-sm text-slate-800 cursor-pointer" role="menuitem" tabIndex="-1" id="user-menu-item-2">
                         Logout
                       </button>
                     </div>
@@ -119,25 +129,11 @@ const Navbar = () => {
               >
                 <span className="sr-only">Open main menu</span>
                 {!isMobileOpen ? (
-                  <svg
-                    className="block h-6 w-6"
-                    xmlns="http://www.w3.org/2000/svg"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                    aria-hidden="true"
-                  >
+                  <svg className="block h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h16" />
                   </svg>
                 ) : (
-                  <svg
-                    className="block h-6 w-6"
-                    xmlns="http://www.w3.org/2000/svg"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                    aria-hidden="true"
-                  >
+                  <svg className="block h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" />
                   </svg>
                 )}
@@ -158,34 +154,49 @@ const Navbar = () => {
         >
           <div className="md:hidden" id="mobile-menu">
             <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-              <Link
+              <NavLink
                 to="/"
-                className="text-sky-700 block px-3 py-2 rounded-md text-base font-medium"
-                aria-current="page"
+                className={({ isActive }) =>
+                  isActive
+                    ? "text-sky-700 font-medium hover:text-sky-700 hover:font-medium px-3 py-2 rounded-md text-sm font-regular cursor-pointer"
+                    : "text-gray-800 hover:text-sky-700 hover:font-medium px-3 py-2 rounded-md text-sm font-regular cursor-pointer"
+                }
               >
                 Home
-              </Link>
+              </NavLink>
 
-              <Link
+              <NavLink
                 to="/manga"
-                className="text-gray-800 hover:font-medium hover:text-sky-700 block px-3 py-2 rounded-md text-base font-regular cursor-pointer"
+                className={({ isActive }) =>
+                  isActive
+                    ? "text-sky-700 font-medium hover:text-sky-700 hover:font-medium px-3 py-2 rounded-md text-sm font-regular cursor-pointer"
+                    : "text-gray-800 hover:text-sky-700 hover:font-medium px-3 py-2 rounded-md text-sm font-regular cursor-pointer"
+                }
               >
                 Manga
-              </Link>
+              </NavLink>
 
-              <Link
+              <NavLink
                 to="/manhua"
-                className="text-gray-800 hover:font-medium hover:text-sky-700 block px-3 py-2 rounded-md text-base font-regular cursor-pointer"
+                className={({ isActive }) =>
+                  isActive
+                    ? "text-sky-700 font-medium hover:text-sky-700 hover:font-medium px-3 py-2 rounded-md text-sm font-regular cursor-pointer"
+                    : "text-gray-800 hover:text-sky-700 hover:font-medium px-3 py-2 rounded-md text-sm font-regular cursor-pointer"
+                }
               >
                 Manhua
-              </Link>
+              </NavLink>
 
-              <Link
+              <NavLink
                 to="/manhwa"
-                className="text-gray-800 hover:font-medium hover:text-sky-700 block px-3 py-2 rounded-md text-base font-regular cursor-pointer"
+                className={({ isActive }) =>
+                  isActive
+                    ? "text-sky-700 font-medium hover:text-sky-700 hover:font-medium px-3 py-2 rounded-md text-sm font-regular cursor-pointer"
+                    : "text-gray-800 hover:text-sky-700 hover:font-medium px-3 py-2 rounded-md text-sm font-regular cursor-pointer"
+                }
               >
                 Manhwa
-              </Link>
+              </NavLink>
             </div>
             {/* User Mobile  */}
             <div className="pt-4 pb-3 border-t border-sky-200">
@@ -200,10 +211,7 @@ const Navbar = () => {
                     </div>
                   </div>
                   <div className="mt-3 px-2 space-y-1">
-                    <button
-                      onClick={onLogout}
-                      className="block px-3 py-2 rounded-md text-base font-regular text-slate-800 hover:text-sky-700 hover:bg-neutral-100"
-                    >
+                    <button onClick={onLogout} className="block px-3 py-2 rounded-md text-base font-regular text-slate-800 hover:text-sky-700 hover:bg-neutral-100">
                       Logout
                     </button>
                   </div>
@@ -211,10 +219,7 @@ const Navbar = () => {
               ) : (
                 <div>
                   <div className="mt-3 px-2 space-y-1">
-                    <Link
-                      to="/login"
-                      className="block px-3 py-2 rounded-md text-base font-regular text-gray-800 hover:text-sky-700 hover:bg-neutral-100"
-                    >
+                    <Link to="/login" className="block px-3 py-2 rounded-md text-base font-regular text-gray-800 hover:text-sky-700 hover:bg-neutral-100">
                       Login
                     </Link>
                   </div>
