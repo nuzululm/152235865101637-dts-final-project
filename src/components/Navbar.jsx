@@ -26,7 +26,9 @@ const Navbar = () => {
             <div className="flex items-center">
               <div className="flex flex-shrink-0">
                 <img className="h-8 w-8" src={Logo} alt="Logo" />
-                <p className="text-xl text-gray-800 ml-2 font-semibold">komiKuy</p>
+                <p className="text-xl text-gray-800 ml-2 font-semibold">
+                  komiKuy
+                </p>
               </div>
               <div className="hidden md:block">
                 <div className="ml-40 flex items-baseline justify-center">
@@ -73,6 +75,17 @@ const Navbar = () => {
                   >
                     Manhwa
                   </NavLink>
+
+                  <NavLink
+                    to="/search"
+                    className={({ isActive }) =>
+                      isActive
+                        ? "text-sky-700 font-medium hover:text-sky-700 hover:font-medium px-3 py-2 rounded-md text-sm font-regular cursor-pointer"
+                        : "text-gray-800 hover:text-sky-700 hover:font-medium px-3 py-2 rounded-md text-sm font-regular cursor-pointer"
+                    }
+                  >
+                    Search
+                  </NavLink>
                 </div>
               </div>
             </div>
@@ -92,11 +105,18 @@ const Navbar = () => {
                       >
                         <span className="sr-only">Open user menu</span>
                         <p className="mx-2 cursor-pointer">{user.email}</p>
-                        <img className="h-8 w-8 rounded-lg" src={ProfileImage} alt="Profile" />
+                        <img
+                          className="h-8 w-8 rounded-lg"
+                          src={ProfileImage}
+                          alt="Profile"
+                        />
                       </button>
                     </div>
                   ) : (
-                    <Link to="/login" className="max-w-xs bg-neutral-50 rounded-lg flex items-center text-sm focus:outline-none text-gray-800 hover:text-sky-700 font-regular hover:font-medium">
+                    <Link
+                      to="/login"
+                      className="max-w-xs bg-neutral-50 rounded-lg flex items-center text-sm focus:outline-none text-gray-800 hover:text-sky-700 font-regular hover:font-medium"
+                    >
                       <p className="mx-2 cursor-pointer text-md">Login</p>
                       <RiLoginBoxLine className="h-5 w-5" />
                     </Link>
@@ -110,7 +130,13 @@ const Navbar = () => {
                       aria-labelledby="user-menu-button"
                       tabIndex="-1"
                     >
-                      <button onClick={onLogout} className="block px-4 py-2 text-sm text-slate-800 cursor-pointer" role="menuitem" tabIndex="-1" id="user-menu-item-2">
+                      <button
+                        onClick={onLogout}
+                        className="block px-4 py-2 text-sm text-slate-800 cursor-pointer"
+                        role="menuitem"
+                        tabIndex="-1"
+                        id="user-menu-item-2"
+                      >
                         Logout
                       </button>
                     </div>
@@ -129,12 +155,36 @@ const Navbar = () => {
               >
                 <span className="sr-only">Open main menu</span>
                 {!isMobileOpen ? (
-                  <svg className="block h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h16" />
+                  <svg
+                    className="block h-6 w-6"
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                    aria-hidden="true"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth="2"
+                      d="M4 6h16M4 12h16M4 18h16"
+                    />
                   </svg>
                 ) : (
-                  <svg className="block h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" />
+                  <svg
+                    className="block h-6 w-6"
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                    aria-hidden="true"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth="2"
+                      d="M6 18L18 6M6 6l12 12"
+                    />
                   </svg>
                 )}
               </button>
@@ -204,14 +254,23 @@ const Navbar = () => {
                 <div>
                   <div className="flex items-center px-5">
                     <div className="flex-shrink-0">
-                      <img className="h-10 w-10 rounded-lg" src={ProfileImage} alt="Profile" />
+                      <img
+                        className="h-10 w-10 rounded-lg"
+                        src={ProfileImage}
+                        alt="Profile"
+                      />
                     </div>
                     <div className="ml-3">
-                      <div className="text-sm font-semibold leading-none text-gray-800 ">{user.email}</div>
+                      <div className="text-sm font-semibold leading-none text-gray-800 ">
+                        {user.email}
+                      </div>
                     </div>
                   </div>
                   <div className="mt-3 px-2 space-y-1">
-                    <button onClick={onLogout} className="block px-3 py-2 rounded-md text-base font-regular text-slate-800 hover:text-sky-700 hover:bg-neutral-100">
+                    <button
+                      onClick={onLogout}
+                      className="block px-3 py-2 rounded-md text-base font-regular text-slate-800 hover:text-sky-700 hover:bg-neutral-100"
+                    >
                       Logout
                     </button>
                   </div>
@@ -219,7 +278,10 @@ const Navbar = () => {
               ) : (
                 <div>
                   <div className="mt-3 px-2 space-y-1">
-                    <Link to="/login" className="block px-3 py-2 rounded-md text-base font-regular text-gray-800 hover:text-sky-700 hover:bg-neutral-100">
+                    <Link
+                      to="/login"
+                      className="block px-3 py-2 rounded-md text-base font-regular text-gray-800 hover:text-sky-700 hover:bg-neutral-100"
+                    >
                       Login
                     </Link>
                   </div>

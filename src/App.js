@@ -4,6 +4,7 @@ import ProtectedRoute from "./components/ProtectedRoute";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
 import Detail from "./pages/Detail";
+import Search from "./pages/Search";
 
 function App() {
   return (
@@ -38,6 +39,14 @@ function App() {
           element={
             <ProtectedRoute>
               <Home />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/search"
+          element={
+            <ProtectedRoute>
+              <Search />
             </ProtectedRoute>
           }
         />

@@ -5,11 +5,8 @@ const API_URL = {
   topManga: `${BASE_URL}/top/manga?type=manga&limit=12`,
   topManhua: `${BASE_URL}/top/manga?type=manhua&limit=12`,
   topManhwa: `${BASE_URL}/top/manga?type=manhwa&limit=12`,
-  search: `${BASE_URL}/manga?q=`, // + query
-  manga: `${BASE_URL}/manga/id/full`, // + id
-  characters: `${BASE_URL}/manga/id/characters`, // + id
-  recommendations: `${BASE_URL}/manga/id/recommendations`, // + id
-  reviews: `${BASE_URL}/manga/id/reviews`, // + id
+  defaultSearch: `${BASE_URL}/top/manga?limit=24`,
+  search: `${BASE_URL}/manga?q=`, // +query
 };
 
 export default API_URL;
