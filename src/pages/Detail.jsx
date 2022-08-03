@@ -37,7 +37,9 @@ const Detail = () => {
   useEffect(() => {
     const getRecommendations = async () => {
       try {
-        const response = await axios.get(`${BASE_URL}/manga/${id}/recommendations`);
+        const response = await axios.get(
+          `${BASE_URL}/manga/${id}/recommendations`
+        );
         setRecommendations(response?.data?.data);
       } catch (error) {
         if (error?.response?.status === 429) {
@@ -55,16 +57,28 @@ const Detail = () => {
       <div className="w-full h-[400px] inline-block relative z-1">
         <div className="w-full h-full">
           <div className="absolute w-full h-[400px] bg-gradient-to-r from-black z-2"></div>
-          <img className="w-full h-full object-cover" src={manga?.images?.webp?.large_image_url} alt={manga?.title} />
+          <img
+            className="w-full h-full object-cover"
+            src={manga?.images?.webp?.large_image_url}
+            alt={manga?.title}
+          />
         </div>
         <div className="absolute top-[5%] left-[5%] flex flex-auto">
           <div className="flex">
-            <img className="w-full h-full rounded-lg" src={`${manga?.images?.webp?.image_url}`} alt={manga?.title} />
+            <img
+              className="w-full h-full rounded-lg"
+              src={`${manga?.images?.webp?.image_url}`}
+              alt={manga?.title}
+            />
           </div>
           <div className="ml-5 flex-auto rounded-lg py-2 px-4 mx-2 my-auto">
-            <h2 className="text-white text-4xl font-bold mb-1">{manga?.title}</h2>
+            <h2 className="text-white text-4xl font-bold mb-1">
+              {manga?.title}
+            </h2>
             <p className="text-white text-sm mb-2">{titles.join(", ")}</p>
-            <p className="text-white rounded-sm text-md font-semibold mt-2 mb-10">{manga?.type}</p>
+            <p className="text-white rounded-sm text-md font-semibold mt-2 mb-10">
+              {manga?.type}
+            </p>
             <p className="text-white text-md mt-2 font-semibold">
               Author :{" "}
               <span>
@@ -90,19 +104,45 @@ const Detail = () => {
       </div>
 
       <div className="mx-10 mt-4 bg-white rounded-lg shadow-md p-5">
-        <h2 className="text-xl mb-4 font-bold text-slate-700">Synopsis</h2>
-        <p className="text-md text-slate-600">{manga?.synopsis}</p>
-      </div>
+        <h2 className="text-4xl mb-4 font-bold text-slate-700">
+          {manga?.title}
+        </h2>
 
-      <div className="mx-10 mt-4 bg-white rounded-lg shadow-md p-5">
-        <h2 className="text-xl mb-4 font-bold text-slate-700">Background</h2>
-        <p className="text-md text-slate-600">{manga?.background}</p>
+        <p className="text-md mb-2 text-slate-700">
+          <span className="font-bold">Alternate Title : </span>{" "}
+          {titles.join(", ")}
+        </p>
+        <p className="text-md mb-2 text-slate-700">
+          <span className="font-bold">Type : </span> {manga?.type}
+        </p>
+        <p className="text-md mb-2 text-slate-700">
+          <span className="font-bold">Author : </span>{" "}
+          {authors
+            .map((item) => {
+              return item.name;
+            })
+            .join(", ")}
+        </p>
+        <p className="text-md mb-2 text-slate-700">
+          <span className="font-bold">Genre : </span>{" "}
+          {genres
+            .map((item) => {
+              return item.name;
+            })
+            .join(", ")}
+        </p>
+        <h2 className="text-xl font-bold text-slate-700 mt-6">Synopsis</h2>
+        <p className="text-md text-slate-600 mt-4">{manga?.synopsis}</p>
+        <h2 className="text-xl font-bold text-slate-700 mt-6">Background</h2>
+        <p className="text-md text-slate-600 mt-4">{manga?.background}</p>
       </div>
 
       {/* Recommendations  */}
       <div className="flex flex-col">
         <div className="flex justify-between px-4 sm:px-6 lg:px-8 mt-5">
-          <h2 className="text-slate-700 font-bold md:text-xl p-4">Recommendations</h2>
+          <h2 className="text-slate-700 font-bold md:text-xl p-4">
+            Recommendations
+          </h2>
         </div>
 
         <div className="w-full grid grid-cols-6 gap-1 lg:gap-2">
