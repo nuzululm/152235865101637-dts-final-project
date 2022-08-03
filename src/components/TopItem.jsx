@@ -31,7 +31,8 @@ const TopItem = ({ title, fetchURL, type = "manga" }) => {
             View All
           </Link>
         </div>
-        <div className="grid grid-cols-6 gap-1 lg:gap-2 px-4 sm:px-6 lg:px-8">
+
+        <div className="w-full grid grid-cols-6 gap-1 lg:gap-2">
           {manga.map((item, id) => (
             <Manga key={id} item={item} />
           ))}
