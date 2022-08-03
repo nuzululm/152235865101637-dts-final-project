@@ -5,6 +5,9 @@ import Login from "./pages/Login";
 import Register from "./pages/Register";
 import Detail from "./pages/Detail";
 import Search from "./pages/Search";
+import MangaPage from "./pages/MangaPage";
+import ManhuaPage from "./pages/ManhuaPage";
+import ManhwaPage from "./pages/ManhwaPage";
 
 function App() {
   return (
@@ -22,7 +25,7 @@ function App() {
           path="/manga"
           element={
             <ProtectedRoute>
-              <Home />
+              <MangaPage />
             </ProtectedRoute>
           }
         />
@@ -30,7 +33,7 @@ function App() {
           path="/manhua"
           element={
             <ProtectedRoute>
-              <Home />
+              <ManhuaPage />
             </ProtectedRoute>
           }
         />
@@ -38,7 +41,7 @@ function App() {
           path="/manhwa"
           element={
             <ProtectedRoute>
-              <Home />
+              <ManhwaPage />
             </ProtectedRoute>
           }
         />
